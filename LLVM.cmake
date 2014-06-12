@@ -1,0 +1,17 @@
+find_package(LLVM)
+
+if( NOT LLVM_FOUND )
+  message(FATAL_ERROR "LLVM package can't be found. Set CMAKE_PREFIX_PATH variable to LLVM's installation prefix.")
+endif()
+
+set(CMAKE_MODULE_PATH "${LLVM_CMAKE_DIR}")
+
+include(HandleLLVMOptions)
+
+include_directories( ${LLVM_INCLUDE_DIRS} )
+
+link_directories( ${LLVM_LIBRARY_DIRS} )
+
+set(LLVM_LIBS LLVMLTO LLVMObjCARCOpts LLVMLinker LLVMipo LLVMVectorize LLVMBitWriter LLVMIRReader LLVMAsmParser LLVMR600CodeGen LLVMR600Desc LLVMR600Info LLVMR600AsmPrinter LLVMSystemZDisassembler LLVMSystemZCodeGen LLVMSystemZAsmParser LLVMSystemZDesc LLVMSystemZInfo LLVMSystemZAsmPrinter LLVMHexagonCodeGen LLVMHexagonAsmPrinter LLVMHexagonDesc LLVMHexagonInfo LLVMNVPTXCodeGen LLVMNVPTXDesc LLVMNVPTXInfo LLVMNVPTXAsmPrinter LLVMCppBackendCodeGen LLVMCppBackendInfo LLVMMSP430CodeGen LLVMMSP430Desc LLVMMSP430Info LLVMMSP430AsmPrinter LLVMXCoreDisassembler LLVMXCoreCodeGen LLVMXCoreDesc LLVMXCoreInfo LLVMXCoreAsmPrinter LLVMMipsDisassembler LLVMMipsCodeGen LLVMMipsAsmParser LLVMMipsDesc LLVMMipsInfo LLVMMipsAsmPrinter LLVMAArch64Disassembler LLVMAArch64CodeGen LLVMAArch64AsmParser LLVMAArch64Desc LLVMAArch64Info LLVMAArch64AsmPrinter LLVMAArch64Utils LLVMARMDisassembler LLVMARMCodeGen LLVMARMAsmParser LLVMARMDesc LLVMARMInfo LLVMARMAsmPrinter LLVMPowerPCDisassembler LLVMPowerPCCodeGen LLVMPowerPCAsmParser LLVMPowerPCDesc LLVMPowerPCInfo LLVMPowerPCAsmPrinter LLVMSparcDisassembler LLVMSparcCodeGen LLVMSparcAsmParser LLVMSparcDesc LLVMSparcInfo LLVMSparcAsmPrinter LLVMTableGen LLVMDebugInfo LLVMOption LLVMX86Disassembler LLVMX86AsmParser LLVMX86CodeGen LLVMSelectionDAG LLVMAsmPrinter LLVMMCParser LLVMX86Desc LLVMX86Info LLVMX86AsmPrinter LLVMX86Utils LLVMJIT LLVMLineEditor LLVMMCDisassembler LLVMInstrumentation LLVMInterpreter LLVMCodeGen LLVMScalarOpts LLVMInstCombine LLVMTransformUtils LLVMipa LLVMAnalysis LLVMProfileData LLVMMCJIT LLVMTarget LLVMRuntimeDyld LLVMExecutionEngine LLVMMC LLVMObject LLVMBitReader LLVMCore LLVMSupport)
+
+add_definitions(${LLVM_DEFINITIONS})
