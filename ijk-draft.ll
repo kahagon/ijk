@@ -67,7 +67,7 @@ define void @typed_value_set_string(%typed_value_t* %tv_p, %string_data_t* %str_
 }
 
 define %stack_t* @stack_alloc(i64 %size) {
-  %stack_p = alloca %stack_t, i64 %size
+  %stack_p = alloca %stack_t
   %max_size_p = getelementptr %stack_t* %stack_p, i64 0, i32 1
   store i64 %size, i64* %max_size_p
 

@@ -1,9 +1,12 @@
+CMakeCache.txt
 CMakeLists.txt
 CMakeFiles
 CmakeCache.txt
 Makefile
 cmake_install.cmake
 nbproject
+
+hello.ll
 
 *.swp
 *.o
