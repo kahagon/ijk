@@ -95,7 +95,6 @@ class Translator {
     virtual ~Translator() {
       delete m_mod;
       delete m_builder;
-      delete m_dataLayout;
     };
 
     void pushPAR(PseudoActRec* par) {
